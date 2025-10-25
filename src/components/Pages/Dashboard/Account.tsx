@@ -9,7 +9,6 @@ import {
   BreadcrumbPage,
   BreadcrumbSeparator
 } from "@/components/ui/breadcrumb";
-import { Footer } from "@/components/admin-panel/footer";
 import { Sidebar } from "@/components/admin-panel/sidebar";
 import { useStore } from "zustand";
 import { useSidebarToggle } from "@/hooks/use-sidebar-toggle";
