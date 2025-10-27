@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { useEditor, EditorContent } from '@tiptap/react';
+import { useEditor, EditorContent, Editor } from '@tiptap/react';
 import StarterKit from '@tiptap/starter-kit';
 import Underline from '@tiptap/extension-underline';
 import TextAlign from '@tiptap/extension-text-align';
@@ -50,7 +50,15 @@ lowlight.register('python', python);
 lowlight.register('php', php);
 
 // Menu button component
-const MenuButton = ({ onClick, active, disabled, children, title }) => {
+interface MenuButtonProps {
+  onClick: () => void;
+  active?: boolean;
+  disabled?: boolean;
+  children: React.ReactNode;
+  title?: string;
+}
+
+const MenuButton = ({ onClick, active, disabled, children, title }: MenuButtonProps) => {
   return (
     <button
       onClick={onClick}
@@ -63,7 +71,12 @@ const MenuButton = ({ onClick, active, disabled, children, title }) => {
   );
 };
 
-const BlogEditor = ({ blog, setBlog }) => {
+interface BlogEditorProps {
+  blog: string;
+  setBlog: (content: string) => void;
+}
+
+const BlogEditor = ({ blog, setBlog }: BlogEditorProps) => {
   const [imageUrl, setImageUrl] = useState('');
   const [videoUrl, setVideoUrl] = useState('');
   const [showImageDialog, setShowImageDialog] = useState(false);
@@ -71,8 +84,8 @@ const BlogEditor = ({ blog, setBlog }) => {
   const [showLinkDialog, setShowLinkDialog] = useState(false);
   const [linkUrl, setLinkUrl] = useState('');
   const [linkText, setLinkText] = useState('');
-  const fileInputRef = useRef(null);
-  const [selectedImage, setSelectedImage] = useState(null);
+  const fileInputRef = useRef<HTMLInputElement>(null);
+  const [selectedImage, setSelectedImage] = useState<string | null>(null);
 
   const editor = useEditor({
     extensions: [
@@ -119,12 +132,12 @@ const BlogEditor = ({ blog, setBlog }) => {
     setShowImageDialog(true);
   };
 
-  const handleImageUpload = (event) => {
-    const file = event.target.files[0];
+  const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
     if (file) {
       const reader = new FileReader();
       reader.onload = (e) => {
-        setSelectedImage(e.target.result);
+        setSelectedImage(e.target?.result as string);
       };
       reader.readAsDataURL(file);
     }
@@ -258,7 +271,7 @@ const BlogEditor = ({ blog, setBlog }) => {
             if (value === 'paragraph') {
               editor.chain().focus().setParagraph().run();
             } else {
-              const level = parseInt(value.replace('heading', ''));
+              const level = parseInt(value.replace('heading', '')) as 1 | 2 | 3 | 4 | 5 | 6;
               editor.chain().focus().toggleHeading({ level }).run();
             }
           }}
