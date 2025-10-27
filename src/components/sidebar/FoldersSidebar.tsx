@@ -21,7 +21,7 @@ export function FoldersSidebar({ onFolderSelect, selectedFolderId }: FoldersSide
   );
 
   return (
-    <aside className="h-screen w-full lg:w-[280px] border-r bg-background flex flex-col flex-shrink-0">
+    <aside className="h-[calc(100vh-56px)] w-full lg:w-[280px] border-r bg-background flex flex-col flex-shrink-0">
       {/* Header */}
       <div className="flex items-center justify-between border-b px-4 py-3">
         <h2 className="text-lg font-semibold">Your Folders</h2>
