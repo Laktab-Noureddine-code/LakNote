@@ -130,22 +130,23 @@ export function CollapseMenuButton({
             <DropdownMenuTrigger asChild>
               <Button
                 variant={active ? "secondary" : "ghost"}
-                className="w-full justify-start h-10 mb-1"
+                className={cn(
+                  'h-10 mb-1',
+                  isOpen === false ? 'w-10 justify-center p-0' : 'w-full justify-start'
+                )}
               >
-                <div className="w-full items-center flex justify-between">
-                  <div className="flex items-center">
-                    <span className={cn(isOpen === false ? "" : "mr-4")}>
-                      <Icon size={18} />
-                    </span>
-                    <p
-                      className={cn(
-                        "max-w-[200px] truncate",
-                        isOpen === false ? "opacity-0" : "opacity-100"
-                      )}
-                    >
-                      {label}
-                    </p>
-                  </div>
+                <div className="flex items-center">
+                  <span className={cn(isOpen === false ? "" : "mr-4")}>
+                    <Icon size={18} />
+                  </span>
+                  <p
+                    className={cn(
+                      "max-w-[200px] truncate",
+                      isOpen === false ? "hidden" : "block"
+                    )}
+                  >
+                    {label}
+                  </p>
                 </div>
               </Button>
             </DropdownMenuTrigger>

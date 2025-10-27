@@ -1,10 +1,11 @@
 import {
-  Tag,
-  Users,
-  Settings,
+  FileText,
+  Folder,
+  CheckSquare,
   Bookmark,
-  SquarePen,
-  LayoutGrid
+  Users,
+  HelpCircle,
+  Settings
 } from "lucide-react";
 
 type Submenu = {
@@ -32,65 +33,56 @@ export function getMenuList(pathname: string): Group[] {
       groupLabel: "",
       menus: [
         {
-          href: "/dashboard",
-          label: "Dashboard",
-          active: pathname.includes("/dashboard"),
-          icon: LayoutGrid,
+          href: "/notes",
+          label: "Notes",
+          active: pathname.includes("/notes"),
+          icon: FileText,
           submenus: []
-        }
-      ]
-    },
-    {
-      groupLabel: "Contents",
-      menus: [
-        {
-          href: "",
-          label: "Posts",
-          active: pathname.includes("/posts"),
-          icon: SquarePen,
-          submenus: [
-            {
-              href: "/posts",
-              label: "All Posts",
-              active: pathname === "/posts"
-            },
-            {
-              href: "/posts/new",
-              label: "New Post",
-              active: pathname === "/posts/new"
-            }
-          ]
         },
         {
-          href: "/categories",
-          label: "Categories",
-          active: pathname.includes("/categories"),
+          href: "/todos",
+          label: "Todos",
+          active: pathname.includes("/todos"),
+          icon: CheckSquare,
+          submenus: []
+        },
+        {
+          href: "/folders",
+          label: "Folders",
+          active: pathname.includes("/folders"),
+          icon: Folder,
+          submenus: []
+        },
+        {
+          href: "/saved",
+          label: "Saved",
+          active: pathname.includes("/saved"),
           icon: Bookmark,
           submenus: []
         },
         {
-          href: "/tags",
-          label: "Tags",
-          active: pathname.includes("/tags"),
-          icon: Tag,
+          href: "/friends",
+          label: "Friends",
+          active: pathname.includes("/friends"),
+          icon: Users,
           submenus: []
         }
       ]
     },
     {
-      groupLabel: "Settings",
+      groupLabel: "",
       menus: [
         {
-          href: "/users",
-          label: "Users",
-          active: pathname.includes("/users"),
-          icon: Users,
+          href: "/help",
+          label: "Help",
+          active: pathname.includes("/help"),
+          icon: HelpCircle,
           submenus: []
         },
         {
-          href: "/account",
-          label: "Account",
-          active: pathname.includes("/account"),
+          href: "/settings",
+          label: "Settings",
+          active: pathname.includes("/settings"),
           icon: Settings,
           submenus: []
         }

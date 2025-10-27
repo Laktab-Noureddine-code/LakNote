@@ -18,7 +18,7 @@ export default function AdminPanelLayout({
       <main
         className={cn(
           "flex-1 bg-zinc-50 dark:bg-zinc-900 overflow-y-auto overflow-x-hidden transition-all ease-in-out duration-300",
-          sidebar.isOpen === false ? "lg:ml-[90px]" : "lg:ml-72"
+          sidebar.isOpen === false ? "lg:ml-[70px]" : "lg:ml-72"
         )}
       >
         {children}
