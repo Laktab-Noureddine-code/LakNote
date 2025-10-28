@@ -16,6 +16,13 @@ export function NotesSidebar({ onNoteSelect, selectedNoteId }: NotesSidebarProps
   const { notes } = useNotesStore();
   const [searchQuery, setSearchQuery] = useState('');
 
+  // Utility function to strip HTML tags and get plain text
+  const stripHtml = (html: string): string => {
+    const tmp = document.createElement('DIV');
+    tmp.innerHTML = html;
+    return tmp.textContent || tmp.innerText || '';
+  };
+
   const filteredNotes = notes.filter((note) =>
     note.title.toLowerCase().includes(searchQuery.toLowerCase())
   );
@@ -66,7 +73,7 @@ export function NotesSidebar({ onNoteSelect, selectedNoteId }: NotesSidebarProps
                 <div className="flex-1 min-w-0">
                   <h3 className="font-medium text-sm truncate">{note.title}</h3>
                   <p className="text-xs text-muted-foreground mt-1 line-clamp-2">
-                    {note.content}
+                    {stripHtml(note.content)}
                   </p>
                 </div>
               </div>

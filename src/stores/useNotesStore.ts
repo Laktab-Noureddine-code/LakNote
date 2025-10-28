@@ -25,7 +25,7 @@ export const useNotesStore = create<NotesState>()(
         {
           id: '1',
           title: 'UX Design Process',
-          content: 'UX Design Process content...',
+          content: '<h1>UX Design Process</h1><p>User Experience (UX) design is a crucial aspect of creating digital products that are intuitive, efficient, and enjoyable to use.</p>',
           color: '#84cc16',
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -33,7 +33,7 @@ export const useNotesStore = create<NotesState>()(
         {
           id: '2',
           title: 'Anatomy of an Optimally Designed...',
-          content: 'Anatomy content...',
+          content: '<h1>Anatomy of an Optimally Designed Interface</h1><p>A well-designed interface combines aesthetics with functionality to create seamless user interactions.</p>',
           color: '#3b82f6',
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -41,7 +41,7 @@ export const useNotesStore = create<NotesState>()(
         {
           id: '3',
           title: 'User Interface Fundamentals',
-          content: 'UI Fundamentals content...',
+          content: '<h1>User Interface Fundamentals</h1><p>Understanding the core principles of UI design is essential for creating effective digital experiences.</p>',
           color: '#a855f7',
           createdAt: new Date(),
           updatedAt: new Date(),
@@ -49,7 +49,7 @@ export const useNotesStore = create<NotesState>()(
         {
           id: '4',
           title: 'Principles Of Design',
-          content: 'Design Principles content...',
+          content: '<h1>Principles Of Design</h1><p>Design principles guide the creation of visually appealing and functional interfaces that users love.</p>',
           color: '#f97316',
           createdAt: new Date(),
           updatedAt: new Date(),

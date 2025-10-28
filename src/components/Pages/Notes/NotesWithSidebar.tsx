@@ -6,6 +6,7 @@ import { useNotesStore } from '@/stores/useNotesStore';
 import { Button } from '@/components/ui/button';
 import { Trash2 } from 'lucide-react';
 import NoteEditor from './NoteEditor';
+import AIAssist from '@/components/AIAssist/AIAssist';
 
 export default function NotesWithSidebar() {
   const { id } = useParams<{ id: string }>();
@@ -18,6 +19,12 @@ export default function NotesWithSidebar() {
   const handleContentChange = (newContent: string) => {
     if (id) {
       updateNote(id, { content: newContent });
+    }
+  };
+
+  const handleAIContentGenerated = (generatedContent: string) => {
+    if (id) {
+      updateNote(id, { content: generatedContent });
     }
   };
 
@@ -88,6 +95,9 @@ export default function NotesWithSidebar() {
             )}
           </div>
         </div>
+
+        {/* AI Assist - Only show when a note is selected */}
+        {selectedNote && <AIAssist onContentGenerated={handleAIContentGenerated} />}
       </div>
     </AdminPanelLayout>
   );

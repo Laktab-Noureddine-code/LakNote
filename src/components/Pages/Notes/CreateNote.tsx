@@ -2,6 +2,7 @@
 import { useState, useRef } from "react";
 import "./blogPreview.css";
 import BlogEditor from "./NoteEditor";
+import AIAssist from "@/components/AIAssist/AIAssist";
 
 const CreateNote = () => {
   const [title, setTitle] = useState('');
@@ -19,6 +20,10 @@ const CreateNote = () => {
       const imageUrl = URL.createObjectURL(file);
       setCoverImage(imageUrl);
     }
+  };
+
+  const handleAIContentGenerated = (generatedContent: string) => {
+    setContent(generatedContent);
   };
 
   return (
@@ -82,6 +87,9 @@ const CreateNote = () => {
           </div>
         </div>
       </div>
+
+      {/* AI Assist */}
+      <AIAssist onContentGenerated={handleAIContentGenerated} />
     </div>
   );
 };

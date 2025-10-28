@@ -7,7 +7,7 @@ import { TextStyle } from '@tiptap/extension-text-style';
 import Link from '@tiptap/extension-link';
 import Image from '@tiptap/extension-image';
 import Youtube from '@tiptap/extension-youtube';
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import './BlogEditor.css';
 import {
   Bold, Italic, Underline as UnderlineIcon, Strikethrough, AlignLeft, AlignCenter,
@@ -123,6 +123,13 @@ const NoteEditor = ({ content, onContentChange }: NoteEditorProps) => {
       onContentChange(editor.getHTML());
     },
   });
+
+  // Update editor content when prop changes
+  useEffect(() => {
+    if (editor && content !== editor.getHTML()) {
+      editor.commands.setContent(content);
+    }
+  }, [content, editor]);
 
   if (!editor) {
     return null;
