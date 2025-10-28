@@ -71,12 +71,12 @@ const MenuButton = ({ onClick, active, disabled, children, title }: MenuButtonPr
   );
 };
 
-interface BlogEditorProps {
-  blog: string;
-  setBlog: (content: string) => void;
+interface NoteEditorProps {
+  content: string;
+  onContentChange: (content: string) => void;
 }
 
-const BlogEditor = ({ blog, setBlog }: BlogEditorProps) => {
+const NoteEditor = ({ content, onContentChange }: NoteEditorProps) => {
   const [imageUrl, setImageUrl] = useState('');
   const [videoUrl, setVideoUrl] = useState('');
   const [showImageDialog, setShowImageDialog] = useState(false);
@@ -118,9 +118,9 @@ const BlogEditor = ({ blog, setBlog }: BlogEditorProps) => {
         controls: true,
       }),
     ],
-    content: blog,
+    content: content,
     onUpdate: ({ editor }) => {
-      setBlog(editor.getHTML());
+      onContentChange(editor.getHTML());
     },
   });
 
@@ -550,4 +550,4 @@ const BlogEditor = ({ blog, setBlog }: BlogEditorProps) => {
   );
 };
 
-export default BlogEditor;
+export default NoteEditor;

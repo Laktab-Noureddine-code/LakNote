@@ -1,4 +1,4 @@
-import CreateNote from "./CreateNote";
+import CreateNote from "../Pages/Notes/CreateNote";
 
 function NoteWorkflow() {
   return (

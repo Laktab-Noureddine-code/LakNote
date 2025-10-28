@@ -35,8 +35,8 @@ export function NotesPage() {
             </div>
 
             {/* Note Content */}
-            <div className="flex-1 overflow-y-auto px-8 py-6">
-              <div className="prose dark:prose-invert max-w-none">
+            <div className="flex-1 overflow-y-auto px-8  py-6">
+              <div className="prose dark:prose-invert ">
                 <p>{selectedNote.content}</p>
               </div>
             </div>

@@ -1,0 +1,236 @@
+@import 'highlight.js/styles/atom-one-dark.css';
+
+/* Container */
+.note-editor-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+/* Editor Content Area - Clean and minimal */
+.note-editor-content {
+  padding: 24px 32px;
+  min-height: 100%;
+  background-color: transparent;
+}
+
+.note-editor-content .ProseMirror {
+  outline: none;
+  min-height: 300px;
+  color: #1f2937;
+  background-color: transparent;
+}
+
+.dark .note-editor-content .ProseMirror {
+  color: #e5e7eb;
+  background-color: transparent;
+}
+
+/* Text Styling */
+.note-editor-content .ProseMirror p {
+  margin: 1em 0;
+}
+
+.note-editor-content .ProseMirror h1,
+.note-editor-content .ProseMirror h2,
+.note-editor-content .ProseMirror h3,
+.note-editor-content .ProseMirror h4,
+.note-editor-content .ProseMirror h5,
+.note-editor-content .ProseMirror h6 {
+  margin: 1em 0 0.5em;
+  font-weight: bold;
+}
+
+.note-editor-content .ProseMirror h1 { font-size: 2em; }
+.note-editor-content .ProseMirror h2 { font-size: 1.75em; }
+.note-editor-content .ProseMirror h3 { font-size: 1.5em; }
+.note-editor-content .ProseMirror h4 { font-size: 1.25em; }
+.note-editor-content .ProseMirror h5 { font-size: 1.1em; }
+.note-editor-content .ProseMirror h6 { font-size: 1em; }
+
+.note-editor-content .ProseMirror blockquote {
+  border-left: 3px solid #d1d5db;
+  padding-left: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-style: italic;
+  color: #6b7280;
+}
+
+.dark .note-editor-content .ProseMirror blockquote {
+  border-left-color: #4b5563;
+  color: #9ca3af;
+}
+
+.note-editor-content .ProseMirror pre {
+  background: #1f2937;
+  color: #e5e7eb;
+  font-family: 'Courier New', monospace;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  overflow-x: auto;
+}
+
+.note-editor-content .ProseMirror ul,
+.note-editor-content .ProseMirror ol {
+  padding-left: 2rem;
+}
+
+.note-editor-content .ProseMirror a {
+  color: #3b82f6;
+  text-decoration: underline;
+}
+
+.dark .note-editor-content .ProseMirror a {
+  color: #60a5fa;
+}
+
+/* Images */
+.ProseMirror img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+/* YouTube videos */
+.ProseMirror .youtube-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 1em 0;
+}
+
+.ProseMirror .youtube-video {
+  width: 100%;
+  max-width: 640px;
+  aspect-ratio: 16/9;
+  border-radius: 8px;
+}
+
+/* Fixed Toolbar - Bottom Right - Clean Design */
+.note-editor-toolbar-fixed {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 600px;
+  gap: 4px;
+  padding: 8px;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  background-color: #ffffff;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  z-index: 50;
+}
+
+.dark .note-editor-toolbar-fixed {
+  background-color: #1f2937;
+  border-color: #374151;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+/* Toolbar Buttons - Minimal Design */
+.menu-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: none;
+  background: transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  color: #374151;
+  transition: all 0.15s ease;
+}
+
+.dark .menu-button {
+  color: #d1d5db;
+}
+
+.menu-button:hover {
+  background-color: #f3f4f6;
+}
+
+.dark .menu-button:hover {
+  background-color: #374151;
+}
+
+.menu-button.is-active {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+.dark .menu-button.is-active {
+  background-color: #3b82f6;
+  color: #ffffff;
+}
+
+/* Toolbar Divider */
+.toolbar-divider {
+  width: 1px;
+  height: 24px;
+  background-color: #e5e7eb;
+  margin: 0 4px;
+}
+
+.dark .toolbar-divider {
+  background-color: #374151;
+}
+
+/* Heading Select */
+.heading-select {
+  height: 32px;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 0 8px;
+  background-color: #ffffff;
+  color: #374151;
+  cursor: pointer;
+  font-size: 13px;
+  transition: all 0.15s ease;
+}
+
+.dark .heading-select {
+  background-color: #1f2937;
+  border-color: #374151;
+  color: #d1d5db;
+}
+
+.heading-select:hover {
+  background-color: #f9fafb;
+  border-color: #d1d5db;
+}
+
+.dark .heading-select:hover {
+  background-color: #374151;
+  border-color: #4b5563;
+}
+
+/* Code Blocks */
+.code-block {
+  position: relative;
+  background: #1f2937;
+  color: #e5e7eb;
+  font-family: 'Courier New', monospace;
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  margin: 1em 0;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .note-editor-toolbar-fixed {
+    bottom: 12px;
+    right: 12px;
+    left: 12px;
+    max-width: none;
+  }
+  
+  .note-editor-content {
+    padding: 16px;
+  }
+}

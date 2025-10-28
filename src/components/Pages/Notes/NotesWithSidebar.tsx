@@ -4,14 +4,22 @@ import { Navbar } from '@/components/admin-panel/navbar';
 import { NotesSidebar } from '@/components/sidebar/NotesSidebar';
 import { useNotesStore } from '@/stores/useNotesStore';
 import { Button } from '@/components/ui/button';
-import { Pencil, Trash2 } from 'lucide-react';
+import { Trash2 } from 'lucide-react';
+import NoteEditor from './NoteEditor';
 
 export default function NotesWithSidebar() {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
-  const { getNote } = useNotesStore();
+  const { getNote, updateNote } = useNotesStore();
   
   const selectedNote = id ? getNote(id) : null;
+
+  // Auto-save content changes
+  const handleContentChange = (newContent: string) => {
+    if (id) {
+      updateNote(id, { content: newContent });
+    }
+  };
 
   const handleNoteSelect = (noteId: string) => {
     navigate(`/notes/${noteId}`);
@@ -53,20 +61,19 @@ export default function NotesWithSidebar() {
                     <h1 className="text-xl lg:text-2xl font-bold">{selectedNote.title}</h1>
                   </div>
                   <div className="flex gap-2">
-                    <Button variant="ghost" size="icon">
-                      <Pencil className="h-4 w-4" />
-                    </Button>
-                    <Button variant="ghost" size="icon">
+                    <Button variant="ghost" size="icon" title="Delete">
                       <Trash2 className="h-4 w-4" />
                     </Button>
                   </div>
                 </div>
 
-                {/* Note Content */}
-                <div className="flex-1 overflow-y-auto px-4 lg:px-8 py-6">
-                  <div className="prose dark:prose-invert max-w-none">
-                    <p>{selectedNote.content}</p>
-                  </div>
+                {/* Note Content - Always Editable */}
+                <div className="flex-1 overflow-y-auto">
+                  <NoteEditor 
+                    key={id}
+                    content={selectedNote.content} 
+                    onContentChange={handleContentChange}
+                  />
                 </div>
               </div>
             ) : (

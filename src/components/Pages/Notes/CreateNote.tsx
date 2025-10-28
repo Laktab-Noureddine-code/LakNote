@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useState, useRef } from "react";
 import "./blogPreview.css";
-import BlogEditor from "./BlogEditor";
+import BlogEditor from "./NoteEditor";
 
 const CreateNote = () => {
   const [title, setTitle] = useState('');
