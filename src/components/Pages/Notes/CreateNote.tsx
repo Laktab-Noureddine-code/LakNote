@@ -78,7 +78,7 @@ const CreateNote = () => {
             <label className="block text-sm font-medium text-gray-700 dark:text-white mb-1">
               Content
             </label>
-            <BlogEditor blog={content} setBlog={setContent} />
+            <BlogEditor content={content} onContentChange={setContent} />
           </div>
         </div>
       </div>
